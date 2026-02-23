@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics &amp; Chemistry Problem Solver</title>
+    <!-- Main application styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Physics &amp; Chemistry Problem Solver</h1>
+        <p class="tagline">Practice and explore concepts step by step.</p>
+    </header>
+
+    <main class="app-main">
+        <!-- Subject selection controls -->
+        <section class="panel">
+            <h2>1. Choose Subject</h2>
+            <div class="subject-toggle" id="subjectToggle">
+                <button class="toggle-button active" data-subject="physics">Physics</button>
+                <button class="toggle-button" data-subject="chemistry">Chemistry</button>
+            </div>
+        </section>
+
+        <!-- Problem input area -->
+        <section class="panel">
+            <h2>2. Describe Your Problem</h2>
+            <p class="panel-help">
+                Enter a short description of the problem. Later this section can be expanded
+                with formula pickers, diagrams, or step-by-step helpers.
+            </p>
+            <form id="problemForm">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                    <!-- Basic starter topics; extend as needed -->
+                    <option value="kinematics">Kinematics (Physics)</option>
+                    <option value="electricity">Electricity (Physics)</option>
+                    <option value="thermodynamics">Thermodynamics (Physics)</option>
+                    <option value="stoichiometry">Stoichiometry (Chemistry)</option>
+                    <option value="equilibrium">Chemical Equilibrium (Chemistry)</option>
+                </select>
+
+                <label for="problemText">Problem Statement</label>
+                <textarea id="problemText" name="problemText" rows="5" placeholder="Example: A car accelerates from rest at 2 m/s² for 5 seconds. Find its final velocity."></textarea>
+
+                <button type="submit" class="primary-button">Solve (Placeholder)</button>
+            </form>
+
+            <hr class="section-separator">
+
+            <h3 class="subheading">Quick Derivative (with respect to x)</h3>
+            <p class="panel-help">
+                Enter an expression in \(x\) (for example: <code>x**3 + 2*x</code>) and the app will
+                compute \(\frac{d}{dx}\) using symbolic math on the server.
+            </p>
+            <form id="derivativeForm">
+                <label for="expression">Expression in x</label>
+                <input
+                    id="expression"
+                    name="expression"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Example: x**2 + 3*x + 5"
+                >
+                <button type="submit" class="primary-button">Compute derivative</button>
+            </form>
+
+            <hr class="section-separator">
+
+            <h3 class="subheading">Upload Problem Image (OCR)</h3>
+            <p class="panel-help">
+                Upload a clear photo or screenshot of a Physics problem. The server will extract text using OCR
+                and then try to solve it using the same detection logic as for typed problems.
+            </p>
+            <form id="imageForm" enctype="multipart/form-data">
+                <label for="problemImage">Problem image</label>
+                <input
+                    id="problemImage"
+                    name="image"
+                    type="file"
+                    accept="image/*"
+                >
+                <button type="submit" class="primary-button">Upload &amp; solve</button>
+            </form>
+        </section>
+
+        <!-- Result display area -->
+        <section class="panel">
+            <h2>3. Solution Steps (Preview)</h2>
+            <p class="panel-help">
+                For now this section only shows simple placeholder text from the server.
+                Later you can plug in detailed Physics/Chemistry calculations here.
+            </p>
+            <div id="result" class="result-box">
+                <p class="placeholder-text">
+                    Submit a problem to see the mock solution response.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>&copy; <span id="year"></span> Physics &amp; Chemistry Practice App</small>
+    </footer>
+
+    <!-- Main application script -->
+    <script src="script.js"></script>
+</body>
+</html>
